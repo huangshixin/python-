@@ -1,0 +1,4 @@
+from matplotlib import pyplot as plt
+
+plot()为我们生成图形
+show()是展示
