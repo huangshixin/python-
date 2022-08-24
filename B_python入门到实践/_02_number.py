@@ -48,3 +48,14 @@ else:
 """试着打印1~20"""
 for number in range(20):#range函数是从0开始，并且这是整数类型扫描
     print(number+1)
+    
+    
+    
+'''python输出不换行：'''
+
+print('output',end='')
+
+
+'''python转二进制'''
+
+bin()
