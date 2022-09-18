@@ -1,6 +1,7 @@
 import numpy as np
 
 
+
 '''计算最小值'''
 x = np.array([
 [11, 12, 13, 14, 15],
@@ -8,15 +9,17 @@ x = np.array([
 [21, 22, 23, 24, 25],
 [26, 27, 28, 29, 30],
 [31, 32, 33, 34, 35]])
-'''最小值函数： amin'''
-value=np.amin(x)
+'''最小值函数：min'''
+
+#python自带 x.min()  或者 x = min(x)
+#numpy中 np.min(x)
+value=np.min(x)
 print(value)
 
-print('打印列上的最小值(用amin函数)：\n',np.amin(x,axis=0))
-print('打印行上的最小值：\n',np.amin(x,axis=1))
+print('打印列上的最小值(用min函数)：\n',np.min(x,axis=0))
+print('打印行上的最小值：\n',np.min(x,axis=1))
 print('Mininum value was printed on the computer（用min函数）:\n',np.min(x,axis=0))
 print('全局最小,并使用min判断\n',np.min(x))
-print('全局最小，并使用amin判断\n',np.amin(x))
 lists=[2,4,56,7,8,0,5,8,5,7]
 print('python自带的min这种方法，只能去识别列表',min(lists))
 '''
@@ -27,11 +30,12 @@ print('#########################################################################
 
 
 '''计算最大值'''
-y = np.amax(x)
+#axis 还是遵守 0 行 1 列 【例如：你现在给定一个二维数组，你需要从找到每一行的最大值，你可以设置axis=0，系统会去逐行寻找最大值，并输出】
+y = np.max(x)
 print(y) # 35
-y = np.amax(x, axis=0)
+y = np.max(x, axis=0)
 print(y) # [31 32 33 34 35]
-y = np.amax(x, axis=1)
+y = np.max(x, axis=1)
 print(y) # [15 20 25 30 35]
 '''同理 还有np.max()'''
 
@@ -47,7 +51,7 @@ print(y) # [15 20 25 30 35]
 '''
 print('\n计算极差###########################################################\n')
 np.random.seed(20200623)
-x = np.random.randint(0, 20, size=[4, 5])
+x = np.random.randint(0, 20, size=[4, 5]) #这里是[] or ()都可以
 print(x)
 # [[10 2 1 1 16]
 # [18 11 10 14 10]
