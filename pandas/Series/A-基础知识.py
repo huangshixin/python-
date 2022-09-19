@@ -44,7 +44,7 @@ print(myvar)
     
   
   
-当输入的data是【字典】类型的时候，此时index的长度可以【不等于】data的长度，但是在输出的时候只会选择具有固定索引长度的值
+当输入的data是【字典】类型的时候，此时index的长度可以【不等于】data的长度，但是在输出的时候只会选择具有固定索引长度的值【当data为  “字典” 时候 ，目的是查找，而不是修改】
     sites = {1: "Google", 2: "Runoob", 3: "Wiki"}
     print(pd.Series(sites,index=[1,2]))
     
