@@ -17,3 +17,16 @@
 
      重启mysql服务：sudo /etc/init.d/mysql restart
      关闭mysql服务：service mysql stop
+
+5、访问不同的mysql
+
+mysql -u root -P+port  -p       大写的P，加上端口号  之后再写小写 -p
+
+6、访问另一个主机/本地主机上的mysql
+
+mysql -u root -P+port -hlocalhost -p
+
+例如： mysql -u root -P 3306 -h 10.188.220.25  -p  (小写p表示password 大写P表示port h表示host） u表示user）
+
+
+
