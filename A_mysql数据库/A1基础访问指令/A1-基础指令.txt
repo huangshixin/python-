@@ -1,0 +1,19 @@
+1、查看版本 ： mysql --version
+
+2、启动并查看MySQL状态： systemctl start mysqld.service      systemctl status mysqld.service
+
+3、进入root账户： mysql -uroot -p
+
+
+
+4、查找账号:sudo cat /etc/mysql/debian.cnf
+     mysql -u debian-sys-maint -p
+     修改密码：use mysql;
+     select user,plugin from user;
+     修改其密码格式：update user set plugin='mysql_native_password' where user='root';
+     flush privileges;
+
+     增加root密码： alter user 'root'@'localhost' identified by 'your_name';
+
+     重启mysql服务：sudo /etc/init.d/mysql restart
+     关闭mysql服务：service mysql stop
