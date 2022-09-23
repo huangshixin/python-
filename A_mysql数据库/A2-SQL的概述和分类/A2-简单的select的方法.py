@@ -27,9 +27,11 @@
   select * from 'order';  当你出现 字段名 和 表名 出现 与 mysql 关键字相同的时候 ，你需要添加 [着重号]
   
   
+  
  8、查询常数
 
 select 'changshu' , column from table_name; 如果你使用的常数不存在这个表中，那么现在在查询的时候，就会直接给它进行 按列匹配；
+
 
 9、查询表结构  [关键字 desc]
 
@@ -37,4 +39,8 @@ DESCRIBE
 
 DESC departments;
   
-
+  
+10、SELECT * FROM employees WHERE department_id=90;
+  
+  1、在sql中尽可能的使用规范，去规范
+  2、where必须出现在from的后面
