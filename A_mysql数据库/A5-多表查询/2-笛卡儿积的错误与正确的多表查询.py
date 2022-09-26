@@ -18,8 +18,20 @@ FROM employees,departments
 WHERE employees.employee_id=departments.department_id; 【连接条件】
 
 
+
 （3）当这个字段，在不同的表都出现的时候，应该使用 【表.ziduan】
     
   
   如果查询语句中出现多个表中都存在的字段，则必须指明此字段
 
+
+    
+（4）给表起一个别名 ，在select和where中 给字段 或者表名 起别名
+
+        SELECT emp.last_name,dep.department_name
+        FROM employees emp,departments dep
+
+（5）练习 查询三张表中员工中的信息；
+SELECT emp.employee_id,emp.last_name,dep.department_name,loc.city
+FROM employees emp,departments dep,locations loc
+WHERE emp.department_id=dep.department_id AND dep.location_id=loc.location_id;
