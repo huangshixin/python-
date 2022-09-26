@@ -57,9 +57,20 @@ eg：行连接
     
     两张表具有相同的字段，且代表不同的含义，比如 第一节度和第二季度的表数据销售额 可以做一个级联
     
+![image](https://user-images.githubusercontent.com/38878365/192219618-aa4a1a77-d414-4823-a97c-6714723507c9.png)
+    
     
 
 
+2、保留特定的字段
+
+
+![image](https://user-images.githubusercontent.com/38878365/192220189-c26f0d54-af25-4702-942e-87bbab7777a0.png)
+
+
+3、append  沿着 axis=0的位置开始连接
+
+![image](https://user-images.githubusercontent.com/38878365/192220753-2e7e1716-8391-4a1a-b0b6-9e42905cae0a.png)
 
 
 
