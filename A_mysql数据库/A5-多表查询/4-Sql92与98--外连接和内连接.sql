@@ -1,7 +1,15 @@
 -- 1、内连接： 合并具有同一列的两个或者两个以上的表的行，结果集中【不包含】（一个表）和（另一个表）不匹配的行
+    SELECT 字段列表
+    FROM A表 INNER JOIN B表
+    ON 关联条件
+    WHERE 等其他子句;
 
 -- 2、外连接：合并具有同一列的两个或者两个以上的表的行，结果集中【包含】（一个表）和（另一个表）不匹配的行外，包含左表或者右表外的值
---
+--    #实现查询结果是A
+      SELECT 字段列表
+      FROM A表 LEFT JOIN B表
+      ON 关联条件
+      WHERE 等其他子句;
 
 --  外连接继续细分 :左外连接、右外连接、满外连接
 
@@ -12,6 +20,25 @@
 -- 右外连接：两表的连接过程中返回包含条件的行外，还返回表中不满足条件的行（指的是右表）
 -- 
 -- 满外连接：两表的连接过程中返回包含条件的行外，还返回表中不满足条件的行（指的是左、右表）
+    合并查询结果 利用UNION关键字，可以给出多条SELECT语句，并将它们的结果组合成单个结果集。合并
+    时，两个表对应的列数和数据类型必须相同，并且相互对应。各个SELECT语句之间使用UNION或UNION
+    ALL关键字分隔。
+    语法格式：
+    SELECT column,... FROM table1
+    UNION [ALL]
+    SELECT column,... FROM table2
+
+    
+    
+
+SELECT e.last_name, e.department_id, d.department_name
+FROM employees e
+RIGHT OUTER JOIN departments d
+ON (e.department_id = d.department_id) ;
+SELECT column,... FROM table1
+UNION [ALL]
+SELECT column,... FROM table2
+
 -- 
 
 
