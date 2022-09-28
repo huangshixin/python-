@@ -20,8 +20,36 @@ TRUNCATE(X,D) 返回数字x截断为y位小数的结果 :SELECT TRUNCATE(32.332,
 SQRT(X) 求平方根
 
 
+【角度与弧度】
+
+RADIANS(x) 角度转为弧度
+degrees(x) 弧度转为角度
+
+【三角函数】
+SIN(X) 正弦
+COS(X)余弦
+TAN(X)正切
+ACOS(X)反正弦
+ASIN(X)
+ATAN(X)
+
+【指数和对数】
+POW(X,Y) x的y次方
+POWER(X,Y) x的y次方
+EXP(X) 以e为底，x次方
+ln（x） ln几次方
+ln(exp(x)) ==x
+log10(x) 以10为底的log
+log2(x)以2为底的log
 
 
+【进制间的转换】
+bin(x) x转2进制
+hex（x） x转16进制
+oct（x） 转8进制
+conv（x，q1，q2）将x从q1进制转换为q2进制
+
+select bin(10）'_2'，HEX(10) '_16'，OCT(10) '_8',CONV(10,2,8) '2To8';
 
 
 
