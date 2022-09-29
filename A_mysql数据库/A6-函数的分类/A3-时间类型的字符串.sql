@@ -82,7 +82,7 @@ ADDDATE(date,INTERVAL expr type)
 
 DATE_SUB(date,INTERVAL expr type)，
 SUBDATE(date,INTERVAL expr type)
-返回与date相差INTERVAL时间间隔的
+返回与date相差INTERVAL时间间隔的【interval计算差值】
 日期
 
 type：
@@ -102,7 +102,7 @@ hour_second
 minute_second
 
 
-ADDTIME(time1,time2)返回time1加上time2的时间。当time2为一个数字时，代表的是秒 ，可以为负数
+ADDTIME(time1,time2)返回time1加上time2的时间。当time2为一个数字时，代表的是【秒 】，可以为负数  time2  '!:1:2'表示时分秒
 
 SUBTIME(time1,time2)返回time1减去time2后的时间。当time2为一个数字时，代表的是 秒 ，可以为负数
 
@@ -112,7 +112,7 @@ TIMEDIFF(time1, time2) 返回time1 - time2的时间间隔
 
 FROM_DAYS(N) 返回从0000年1月1日起，N天以后的日期
 
-TO_DAYS(date) 返回日期date距离0000年1月1日的天数
+TO_DAYS(date) 返回日期date距离0000年1月1日的天数   
 
 LAST_DAY(date) 返回date所在月份的最后一天的日期
 
@@ -125,10 +125,15 @@ PERIOD_ADD(time,n) 返回time加上n后的时间
 
 
 【4.7】日期的格式化与解析
-DATE_FORMAT(date,fmt) 按照字符串fmt格式化日期date值
-TIME_FORMAT(time,fmt) 按照字符串fmt格式化时间time值
-GET_FORMAT(date_type,format_type) 返回日期字符串的显示格式
-STR_TO_DATE(str, fmt) 按照字符串fmt对str进行解析，解析为一个日期
+格式化 ：将时间转换为【字符串】
+解析：将【字符串】转为时间
+
+DATE_FORMAT(date,fmt) 按照字符串fmt格式化日期date值  "%Y-%M-%D"
+TIME_FORMAT(time,fmt) 按照字符串fmt格式化时间time值   time表示时分秒 "%H:%m:%s %W  %w"
+
+---解析----
+GET_FORMAT(date_type,format_type) 返回日期字符串的显示格式      【给定date_type，格式化类型，能够查询（常用表示）】
+STR_TO_DATE(str, fmt) 按照字符串fmt对str进行解析，解析为一个日期  date_type类型转换回去的时候，需要按照fmt的格式
 
 
 【fmt】的格式
