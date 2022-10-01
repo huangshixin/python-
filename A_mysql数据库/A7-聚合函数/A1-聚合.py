@@ -37,6 +37,13 @@ from employees;
 
 3、HAVING 
 
+结论：  如果我们的过滤条件中【聚合函数】，则使用having，不能使用where
+
+    1、Having 必须放在group by的后面
+    2、使用having的时候需要分组；
+    3、having需要和group by一起使用
+select > from>where > order by >group by >Having
+
 
 
 4、SQL底层执行原理
