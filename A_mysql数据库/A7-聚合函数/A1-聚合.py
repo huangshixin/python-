@@ -47,3 +47,41 @@ select > from>where > order by >group by >Having
 
 
 4、SQL底层执行原理
+
+(1) 当过滤条件中有聚合函数的时候，则将聚合函数放在having中
+（2）当没有的时候，将过滤的东西放在where中
+
+【select的完整语句：】
+select ...,(聚合函数)
+from table (left/right  join ...on)
+where 多表连接条件 and others
+group by
+having
+order by
+limit 0,20
+
+
+
+
+执行过程：
+（1）
+from table (left/right  join ...on)
+where 多表连接条件 and others
+group by
+having
+（2）
+select ...,(聚合函数)
+（3）
+order by
+limit 0,20
+
+
+    
+
+
+
+
+
+
+
+
