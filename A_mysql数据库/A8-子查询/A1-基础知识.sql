@@ -81,7 +81,7 @@ where  e.salary>(select salary from employees where last_name='Abel');
       and department_id in (select department_id from employees  where employee_id=174)
       and employee_id<>141;
       
-      【案例分析】
+      【案例分析】子查询写入到having中　ｈａｖｉｎｇ　ｍｉｎ（ｓａｌａｒｙ）　＞　（ｓｅｌｅｃｔ　．．．）
       【案例分析】
       
       
