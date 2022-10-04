@@ -111,4 +111,9 @@
     之后再回滚
     ROLLBACK;
     
+    
+    
+    案例： 使用truncate 还是使用 delete from呢？
+    分析：truncate table 比delete速度块，且使用的系统和日志资源少，但是truncate无事务且不触发
+    trigger，有可能造成事故，以此不建议开发使用；
   
