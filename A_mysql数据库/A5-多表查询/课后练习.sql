@@ -29,7 +29,7 @@ FROM employees e JOIN departments d ON e.department_id=d.department_id
 JOIN locations l ON l.location_id=d.location_id AND l.city='Toronto';
 
 # 5.查询员工所在的部门名称、部门地址、姓名、工作、工资，其中员工所在部门的部门名称为’Executive’【内连接是满足i傲剑的】
-SELECT d.department_name,d.e.last_name,j.job_title,e.salary
+SELECT d.department_name,e.last_name,j.job_title,e.salary
 FROM employees e JOIN departments d ON e.department_id=d.department_id AND d.department_name='Executive'
 join jobs j ON e.job_id=j.job_id ;
 
