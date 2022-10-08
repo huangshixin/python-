@@ -34,6 +34,9 @@ DESC emp1;
        from employees
        where department_id in (70,60);
        
+       
+       #新的方法： 在查询的时候，直接into到一张表中；into seniordrivers----牛客题
+       select * into seniordrivers from drivers where drivedistanced >=5000;
 
 
 【规范】
@@ -177,6 +180,8 @@ group by price desc
 
 
 
+11、当查询的 某个字段为空的时候，比如查询员工表中除了email不等于 123@abc.com
+ select * from employess where email<>'123@abc.com' or email is  NULL ---相当于把不等于 和 为空的都查出来了； 为什么是or呢？ 因为and，就之查出为null；
 
 
 
