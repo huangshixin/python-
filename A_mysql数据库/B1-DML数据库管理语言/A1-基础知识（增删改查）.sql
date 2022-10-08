@@ -37,6 +37,21 @@ DESC emp1;
        
        #新的方法： 在查询的时候，直接into到一张表中；into seniordrivers----牛客题
        select * into seniordrivers from drivers where drivedistanced >=5000;
+       
+       
+      INSERT INTO 语句用于向表格中插入新的行。
+      INSERT INTO table_name VALUES (值1, 值2,....)
+      指定所要插入数据的列：
+      INSERT INTO table_name (列1, 列2,...) VALUES (值1, 值2,....)
+      SELECT INTO 语句从一个表中选取数据，然后把数据插入另一个表中。常用于创建表的备份复件或者用于对记录进行存档。
+      把所有的列插入新表 
+      SELECT *
+      INTO new_table_name [IN externaldatabase] 
+      FROM old_tablename
+      只把希望的列插入新表 
+      SELECT column_name(s)
+      INTO new_table_name [IN externaldatabase] 
+      FROM old_tablename
 
 
 【规范】
