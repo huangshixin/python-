@@ -21,8 +21,8 @@ DESC emp1;
       （3） 署名添加多条【模板】
       insert into emp1(id,hire_date,salary,'name')
        values(2,'2020-10-2',4000,'TOS'),
-       values(2,'2020-10-2',4000,'TOSE'),
-       values(2,'2020-10-2',4000,'TOS');
+      (2,'2020-10-2',4000,'TOSE'),
+      (2,'2020-10-2',4000,'TOS');
        
 方式2：将查询结果插入到表中[这种方式比较好]
 
@@ -57,7 +57,7 @@ DESC emp1;
 【规范】
             insert into table_name(table_columns1,table_columns2,...)
             values(...),
-            values(...);
+            (...);
 
 
             insetr into table_name(table_columns1,table_columns2,...)
@@ -150,9 +150,9 @@ num int
       (2)插入多条
       insert into books(name ,authors,price,pubdate,note)
       values('tal of AAA','Dickes',23,'1995',noval),
-      value(...),
+      (...),
       ...
-      value(...);
+      (...);
 
 
 4、将小说类型novel的书的价格都增加5
