@@ -57,7 +57,8 @@ RLIKE  正则表达式
 （3） '.' 匹配任何一个单字符  [表示任意一个不确定的字符]
 （4） '[...]' 匹配在方括号内的任何字符 :   [abc]  匹配a 或b或c
 （5） '*' 匹配零个或多个在它前面的字符；  'X*' 匹配任何数量的x字符
-    
+   
+  正则表达式可以如下匹配： "%a.*%"； .*表示的是匹配任意多个字符，这个是“.” 匹配任意一个，*表示可以多个；
   
   select 'sadadaf' regexp '^s' ,'daaacvke' regexp 'e$','daviaiofashd' regexp 'ai.f','adasda' regexp '[das]'  from DUAL;
   
