@@ -1,0 +1,92 @@
+如果Linux中安装了mariadb数据库，先卸载掉，因为CentOS 7 内部集成了mariadb，mariadb数据库是mysql的分支，而安装mysql的话会和mariadb的文件冲突，所以需要先卸载掉mariadb
+
+1、检查Linux是否安装了mariadb数据库
+yum list installed | grep mariadb
+
+
+2.全部卸载
+yum -y remove mariadb*
+
+3. 检查mariadb是否全部卸载
+yum list installed | grep mariadb
+
+[若无结果说明全部卸载]
+
+
+
+二、 删除之前安装的mysql
+1、查找以前是否装有mysql
+rpm -qa|grep -i mysql
+无结果，说明未安装mysql或已经卸载彻底，接下来直接安装mysql即可，否则需要删除之前安装的mysql 
+
+2、查找之前安装的mysql的目录、并且删除mysql的文件和库 
+查找mysql的目录
+
+find / -name mysql
+删除对应的mysql目录 
+
+rm -rf 查找到的mysql的目录
+3、卸载后/etc/my.cnf不会删除，需要进行手工删除
+rm -rf /etc/my.cnf
+
+
+
+三、开始安装
+
+1.创建mysql文件夹并切换路劲
+local目录一般是linux上安装文件的地方，所以选这个路径
+
+cd /usr/local
+mkdir mysql
+cd mysql
+2.下载mysql
+wget https://dev.mysql.com/get/Downloads/MySQL-8.0/mysql-8.0.30-linux-glibc2.12-x86_64.tar.xz
+3.解压mysql
+tar xvJf mysql-8.0.30-linux-glibc2.12-x86_64.tar.xz
+
+#切换目录
+cd /usr/local
+
+四.重命名文件夹并删除压缩包
+mv mysql-8.0.30-linux-glibc2.12-x86_64 mysql-8.0
+rm -rf mysql-8.0.30-linux-glibc2.12-x86_64
+
+
+五.创建用户组以及用户和密码
+groupadd mysql
+useradd -g mysql mysql
+
+为什么要创建mysql分组： 我们在编译安装的时候创建一个mysql组和一个mysql用户，并把datadir和安装目录属主改为mysql，
+在MySQL启动的时候，单进程mysqld，该进程的属主就是mysql，这样就保证了mysql服务的独立性，即便mysql服务被黑掉，得到了mysql用户权限，也不会影响整个系统的安全 
+
+
+
+六、授权用户
+chown -R mysql.mysql /usr/local/mysql/mysql-8.0
+
+
+7.切换到bin目录下，初始化基础信息得到临时密码
+cd bin
+./mysqld --user=mysql --basedir=/usr/local/mysql-8.0 --datadir=/usr/local/mysql-8.0/data/ --initialize
+
+8.编辑配置文件my.cnf
+如果没有 my.cnf 文件就通过命令 touch /etc/my.cnf 创建一个
+
+vi /etc/my.cnf
+
+
+9.切换到mysql-8.0目录下，添加mysqld服务到系统
+cd /usr/local/mysql/mysql-8.0
+cp -a ./support-files/mysql.server /etc/init.d/mysql
+10.授权以及添加服务
+chmod +x /etc/init.d/mysql
+chkconfig --add mysql
+11.启动mysql
+service mysql start
+12.查看启动状态
+service mysql status
+
+https://blog.csdn.net/m0_62808124/article/details/126436925
+
+
+
