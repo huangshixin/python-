@@ -38,14 +38,27 @@ local目录一般是linux上安装文件的地方，所以选这个路径
 
 cd /usr/local
 mkdir mysql
+
 cd mysql
+
 2.下载mysql
 wget https://dev.mysql.com/get/Downloads/MySQL-8.0/mysql-8.0.30-linux-glibc2.12-x86_64.tar.xz
-3.解压mysql
+
+3.、解压mysql8.0安装包 -- 切换到 /use/local/mysql文件夹下面，执行命令
 tar xvJf mysql-8.0.30-linux-glibc2.12-x86_64.tar.xz
 
 #切换目录
 cd /usr/local
+
+
+5）、重命名解压出来的文件夹，这里改成mysql-8.0 ;目录在mysql下[usr/local/mysql]
+
+mv mysql-8.0.30-linux-glibc2.12-x86_64 mysql-8.0
+
+6）、/use/local/mysql文件夹下创建data文件夹 存储文件
+
+mkdir data
+
 
 四.重命名文件夹并删除压缩包
 mv mysql-8.0.30-linux-glibc2.12-x86_64 mysql-8.0
@@ -63,6 +76,7 @@ useradd -g mysql mysql
 
 六、授权用户
 chown -R mysql.mysql /usr/local/mysql/mysql-8.0
+chmod 750 /usr/local/mysql/data -R
 
 
 7.切换到bin目录下，初始化基础信息得到临时密码
