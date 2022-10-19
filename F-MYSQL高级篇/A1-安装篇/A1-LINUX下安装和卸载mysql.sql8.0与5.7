@@ -89,7 +89,50 @@ cd bin
 vi /etc/my.cnf
 
 
-9.切换到mysql-8.0目录下，添加mysqld服务到系统
+
+{配置信息]
+
+[mysql]
+default-character-set=utf8
+[client]
+socket=/var/lib/mysql/mysql.sock
+ 
+[mysqld]
+user=mysql
+general_log = 1
+general_log_file= /var/log/mysql/mysql.log
+socket=/var/lib/mysql/mysql.sock
+basedir=/usr/local/mysql/mysql-8.0
+datadir=/usr/local/mysql/data
+log-bin=/usr/local/mysql/data/mysql-bin
+innodb_data_home_dir=/usr/local/mysql/data
+innodb_log_group_home_dir=/usr/local/mysql/data/
+character-set-server=utf8mb4
+lower_case_table_names=1
+autocommit=1
+default_authentication_plugin=mysql_native_password
+symbolic-links=0
+ 
+[mysqld_safe]
+log-error=/usr/local/mysql/data/mysql.log
+pid-file=/usr/local/mysql/data/mysql.pid
+
+
+
+
+
+
+11）、切换到/usr/local/mysql/mysql-8.0/bin目录下--并安装 libaio 环境
+cd bin
+yum install -y libaio
+
+
+【初始化数据密码】
+12)、初始化基础信息,得到数据库的初始密码（在/usr/local/mysql/mysql-8.0/bin目录下执行）
+
+
+9.切换到mysql-8.0目录下，添加mysqld服务到系统 
+
 cd /usr/local/mysql/mysql-8.0
 cp -a ./support-files/mysql.server /etc/init.d/mysql
 10.授权以及添加服务
