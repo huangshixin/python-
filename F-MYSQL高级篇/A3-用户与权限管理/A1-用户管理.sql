@@ -41,18 +41,41 @@ drop user 'wang5';
 （1）root用户修改
 alter user user() identified by 'abcabc';
 
-（2）其它用户修改
 
+（2）其它用户修改
+ALTER USER 'zhangsan' identified by 'abc123';
+[登录后]
+set PASSWORD = 'YOUR_PASSWORD';
 
 （3)其它用户修改别人的密码
 
+【loadding--后续分配权限】
 
 
 
+1.7 MYSQL密码管理设置
+
+（1）用户过期：
+
+ALTER USER user_name PASSWORD EXPIRE;//expire
+
+set prisist defalut_password_lifttime =180;#建立全局策略，设置密码每隔180天过期；
+
+(2) [案例]
+create USER 'kangshifu'@'localhost' PASSWORD EXPIRE INTERVAL 90 DAY;
+ALTER USER 'kangshifu'@'localhost' PASSWORD EXPIRE INTERVAL 90 DAY;
 
 
+#设置密码永不过期
+create user 'kangshifu'@'localhost' PASSWORD expire NEVER;
+
+#延用全局密码过期策略
+alter user 'kangshifu'@'localhost' PASSWORD EXPIRE DEFAULT;
 
 
+3.密码从用策略
+
+设置和最近密码相同的三次；
 
 
 
