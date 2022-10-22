@@ -20,4 +20,22 @@ course_date  2021-09-30
    
 UPDATE Course SET course_status = '学习SQL', course_date = '2021-10-01' WHERE user_id = 2;      
       
-      
+ 
+ 
+ 修改表：ALTER TABLE 表名 修改选项 。选项集合：
+
+{ ADD COLUMN <列名> <类型> -- 增加列
+
+ | CHANGE [COLUMN] <旧列名> <新列名> <新列类型> -- 修改列名或类型
+
+ | ALTER [COLUMN] <列名> { SET DEFAULT <默认值> | DROP DEFAULT } -- 修改/删除 列的默认值
+
+| MODIFY [COLUMN] <列名> <类型> -- 修改列类型
+
+| DROP [COLUMN] <列名> -- 删除列
+
+| RENAME TO <新表名> -- 修改表名
+
+| CHARACTER SET <字符集名> -- 修改字符集
+
+| COLLATE <校对规则名> } -- 修改校对规则（比较和排序时用到）
