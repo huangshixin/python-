@@ -79,6 +79,24 @@ alter user 'kangshifu'@'localhost' PASSWORD EXPIRE DEFAULT;
 
 
 
+#手动设置密码重用方式2：单独设置
+
+#不能使用最近5个密码：
+CREATE USER 'kangshifu'@'localhost' PASSWORD HISTORY 5;
+ALTER USER 'kangshifu'@'localhost' PASSWORD HISTORY 5;
+#不能使用最近365天内的密码：
+CREATE USER 'kangshifu'@'localhost' PASSWORD REUSE INTERVAL 365 DAY;
+ALTER USER 'kangshifu'@'localhost' PASSWORD REUSE INTERVAL 365 DAY;
+#既不能使用最近5个密码，也不能使用365天内的密码
+CREATE USER 'kangshifu'@'localhost'
+PASSWORD HISTORY 5
+PASSWORD REUSE INTERVAL 365 DAY;
+ALTER USER 'kangshifu'@'localhost'
+
+PASSWORD HISTORY 5
+PASSWORD REUSE INTERVAL 365 DAY;
+
+
 
 
 
